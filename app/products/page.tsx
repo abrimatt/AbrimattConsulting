@@ -195,9 +195,11 @@ export default function ProductsPage() {
             discuss your requirements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Schedule Consultation
-            </Button>
+            <Link href="/consultation">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                Schedule Consultation
+              </Button>
+            </Link>
             <Button size="lg" variant="outline">
               Download Product Brochure
             </Button>

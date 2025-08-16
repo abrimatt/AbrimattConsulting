@@ -100,7 +100,9 @@ export function Navigation() {
               Contact
             </Link>
 
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Schedule Consultation</Button>
+            <Link href="/consultation">
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Schedule Consultation</Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -167,9 +169,11 @@ export function Navigation() {
               </Link>
 
               <div className="px-3 py-2">
-                <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                  Schedule Consultation
-                </Button>
+                <Link href="/consultation">
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                    Schedule Consultation
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

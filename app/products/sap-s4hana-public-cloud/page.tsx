@@ -223,9 +223,11 @@ export default function SAPS4HANAPublicCloudPage() {
             growth for your organization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Schedule Consultation
-            </Button>
+            <Link href="/consultation">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                Schedule Consultation
+              </Button>
+            </Link>
             <Button size="lg" variant="outline" asChild>
               <Link href="/contact">Contact Our Experts</Link>
             </Button>

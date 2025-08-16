@@ -168,9 +168,11 @@ export default function StrategicPlanningPage() {
                     <p className="text-sm text-muted-foreground">
                       Schedule a consultation to discuss your strategic planning needs.
                     </p>
-                    <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                      Schedule Consultation
-                    </Button>
+                    <Link href="/consultation">
+                      <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                        Schedule Consultation
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </div>

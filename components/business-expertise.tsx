@@ -1,4 +1,5 @@
 import { CheckCircle, Users, TrendingUp, Shield, Clock, Award } from "lucide-react"
+import Link from "next/link"
 
 export function BusinessExpertise() {
   const expertiseAreas = [
@@ -99,9 +100,11 @@ export function BusinessExpertise() {
           <p className="text-lg text-muted-foreground mb-6">
             Ready to transform your business operations with proven expertise?
           </p>
-          <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-            Schedule a Consultation
-          </button>
+          <Link href="/consultation">
+            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+              Schedule a Consultation
+            </button>
+          </Link>
         </div>
       </div>
     </section>

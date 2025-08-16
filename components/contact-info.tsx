@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { MapPin, Phone, Mail, Clock, Calendar, Linkedin, Twitter } from "lucide-react"
+import Link from "next/link"
 
 export function ContactInfo() {
   return (
@@ -65,10 +66,12 @@ export function ContactInfo() {
             <h3 className="font-heading font-bold text-xl text-primary">Quick Actions</h3>
 
             <div className="space-y-3">
-              <Button className="w-full justify-start bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Calendar className="mr-2 h-4 w-4" />
-                Schedule a Free Consultation
-              </Button>
+              <Link href="/consultation">
+                <Button className="w-full justify-start bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Calendar className="mr-2 h-4 w-4" />
+                  Schedule a Free Consultation
+                </Button>
+              </Link>
               <Button
                 variant="outline"
                 className="w-full justify-start border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"

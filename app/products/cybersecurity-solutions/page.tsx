@@ -110,10 +110,12 @@ export default function CybersecuritySolutionsPage() {
                   Get Security Assessment
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="outline" size="lg">
-                  <Phone className="mr-2 h-4 w-4" />
-                  Schedule Consultation
-                </Button>
+                <Link href="/consultation">
+                  <Button variant="outline" size="lg">
+                    <Phone className="mr-2 h-4 w-4" />
+                    Schedule Consultation
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="relative">

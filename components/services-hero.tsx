@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export function ServicesHero() {
   return (
@@ -21,13 +22,15 @@ export function ServicesHero() {
               Explore Our Services
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-            >
-              Schedule Consultation
-            </Button>
+            <Link href="/consultation">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Schedule Consultation
+              </Button>
+            </Link>
           </div>
 
           <div className="pt-8">

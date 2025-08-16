@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Calendar, MessageCircle } from "lucide-react"
+import Link from "next/link"
 
 export function ServiceCTA() {
   return (
@@ -18,15 +19,17 @@ export function ServiceCTA() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground group"
-                >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Schedule Consultation
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link href="/consultation">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground group"
+                  >
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Schedule Consultation
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
