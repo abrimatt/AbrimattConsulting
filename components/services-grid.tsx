@@ -64,28 +64,37 @@ export function ServicesGrid() {
           {services.map((service) => {
             const IconComponent = service.icon
             return (
-              <Card key={service.title} className="group hover:shadow-lg transition-all duration-300 border-border">
+              <Card
+                key={service.title}
+                className="group hover:shadow-lg hover:bg-primary transition-all duration-300 border-border"
+              >
                 <CardHeader className="space-y-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                    <IconComponent className="h-6 w-6 text-accent" />
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                    <IconComponent className="h-6 w-6 text-accent group-hover:text-white" />
                   </div>
                   <div>
-                    <CardTitle className="font-heading text-xl text-primary">{service.title}</CardTitle>
-                    <CardDescription className="text-muted-foreground mt-2">{service.description}</CardDescription>
+                    <CardTitle className="font-heading text-xl text-primary group-hover:text-white transition-colors">
+                      {service.title}
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground group-hover:text-white/90 transition-colors mt-2">
+                      {service.description}
+                    </CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <ul className="space-y-2">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center space-x-2 text-sm">
-                        <CheckCircle className="h-4 w-4 text-accent flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
+                        <CheckCircle className="h-4 w-4 text-accent group-hover:text-white flex-shrink-0 transition-colors" />
+                        <span className="text-muted-foreground group-hover:text-white/90 transition-colors">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
                   <Button
                     variant="ghost"
-                    className="w-full justify-between group-hover:bg-accent/10 text-primary hover:text-accent"
+                    className="w-full justify-between group-hover:bg-white/10 text-primary group-hover:text-white hover:text-white transition-colors"
                   >
                     Learn More
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
