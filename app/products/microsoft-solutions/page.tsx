@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -112,10 +113,12 @@ export default function MicrosoftSolutionsPage() {
                 by 50% with intelligent automation and AI-powered insights across your entire organization.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Schedule Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Link href="/demo">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Schedule Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Button size="lg" variant="outline">
                   Download Brochure
                 </Button>
@@ -263,9 +266,11 @@ export default function MicrosoftSolutionsPage() {
             a personalized demo to see how Copilot can revolutionize your workflows.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-background text-foreground hover:bg-background/90">
-              Schedule Your Demo
-            </Button>
+            <Link href="/demo">
+              <Button size="lg" className="bg-background text-foreground hover:bg-background/90">
+                Schedule Your Demo
+              </Button>
+            </Link>
             <Button
               size="lg"
               variant="outline"

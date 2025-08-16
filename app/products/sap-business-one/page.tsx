@@ -80,10 +80,12 @@ export default function SAPBusinessOnePage() {
                 entire business from financials to operations in one integrated platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Request Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Link href="/demo">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Request Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Button size="lg" variant="outline">
                   Download Brochure
                 </Button>
@@ -196,7 +198,7 @@ export default function SAPBusinessOnePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Schedule Demo
+              <Link href="/demo">Schedule Demo</Link>
             </Button>
             <Link href="/contact">
               <Button size="lg" variant="outline">

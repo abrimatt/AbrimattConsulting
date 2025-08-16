@@ -85,10 +85,12 @@ export default function SAPBusinessByDesignPage() {
                 your business operations with integrated functionality and real-time insights.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Request Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Link href="/demo">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Request Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Button size="lg" variant="outline">
                   Download Brochure
                 </Button>

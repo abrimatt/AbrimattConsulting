@@ -96,9 +96,11 @@ export default function SAPS4HANAPublicCloudPage() {
                 practices.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Request Demo
-                </Button>
+                <Link href="/demo">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Request Demo
+                  </Button>
+                </Link>
                 <Button size="lg" variant="outline">
                   Download Brochure
                 </Button>

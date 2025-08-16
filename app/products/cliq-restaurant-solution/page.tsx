@@ -88,9 +88,11 @@ export default function CliqRestaurantSolutionPage() {
                 everything from order management to payment processing with our all-in-one platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Request Demo
-                </Button>
+                <Link href="/demo">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Request Demo
+                  </Button>
+                </Link>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/contact">Get Quote</Link>
                 </Button>
@@ -204,7 +206,7 @@ export default function CliqRestaurantSolutionPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
-              Schedule Demo
+              <Link href="/demo">Schedule Demo</Link>
             </Button>
             <Button
               size="lg"
