@@ -58,15 +58,22 @@ export function IndustriesSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((industry) => (
-            <Card key={industry.title} className="border hover:border-accent/50 transition-colors group">
+            <Card
+              key={industry.title}
+              className="group hover:shadow-lg hover:bg-primary transition-all duration-300 border-border"
+            >
               <CardHeader className="pb-4">
-                <div className="mb-3 p-2 bg-accent/10 rounded-lg w-fit group-hover:bg-accent/20 transition-colors">
-                  <industry.icon className="h-6 w-6 text-accent" />
+                <div className="mb-3 p-2 bg-accent/10 rounded-lg w-fit group-hover:bg-white/20 transition-colors">
+                  <industry.icon className="h-6 w-6 text-accent group-hover:text-white transition-colors" />
                 </div>
-                <CardTitle className="font-heading text-lg">{industry.title}</CardTitle>
+                <CardTitle className="font-heading text-lg text-primary group-hover:text-white transition-colors">
+                  {industry.title}
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground leading-relaxed">{industry.description}</p>
+                <p className="text-sm text-muted-foreground group-hover:text-white/90 leading-relaxed transition-colors">
+                  {industry.description}
+                </p>
               </CardContent>
             </Card>
           ))}

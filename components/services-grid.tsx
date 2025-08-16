@@ -1,8 +1,43 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Target, BarChart3, Settings, Users, Smartphone, DollarSign, ArrowRight, CheckCircle } from "lucide-react"
+import {
+  Target,
+  BarChart3,
+  Settings,
+  Users,
+  Smartphone,
+  DollarSign,
+  ArrowRight,
+  CheckCircle,
+  Code,
+  Hotel,
+  Monitor,
+} from "lucide-react"
+import Link from "next/link"
 
 const services = [
+  {
+    icon: Hotel,
+    title: "Hospitality Management",
+    description:
+      "Comprehensive hospitality management solutions with IT deployment, training, and technical support services.",
+    features: ["Property Management", "IT System Deployment", "Hardware & Software Setup", "Network Configuration"],
+    href: "/services/hospitality-management",
+  },
+  {
+    icon: Code,
+    title: "Web Development",
+    description: "Professional web development services to create modern, responsive, and user-friendly websites.",
+    features: ["Responsive Design", "E-commerce Solutions", "CMS Development", "SEO Optimization"],
+    href: "/services/web-development",
+  },
+  {
+    icon: Monitor,
+    title: "Custom Application Development",
+    description: "Tailored web and mobile application development to meet your specific business requirements.",
+    features: ["Web Applications", "Mobile Apps", "API Development", "Cloud Integration"],
+    href: "/services/custom-application-development",
+  },
   {
     icon: Target,
     title: "Strategic Planning",
@@ -92,13 +127,15 @@ export function ServicesGrid() {
                       </li>
                     ))}
                   </ul>
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-between group-hover:bg-white/10 text-primary group-hover:text-white hover:text-white transition-colors"
-                  >
-                    Learn More
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <Link href={service.href}>
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-between group-hover:bg-white/10 text-primary group-hover:text-white hover:text-white transition-colors"
+                    >
+                      Learn More
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             )
