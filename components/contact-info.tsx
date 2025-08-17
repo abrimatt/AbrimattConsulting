@@ -65,8 +65,9 @@ export function ContactInfo() {
           <CardContent className="p-6 space-y-6">
             <h3 className="font-heading font-bold text-xl text-primary">Quick Actions</h3>
 
-            <div className="space-y-3">
-              <Link href="/consultation">
+            <div className="space-y-4">
+              {/* Increased spacing from space-y-3 to space-y-4 for better button separation */}
+              <Link href="/consultation" className="block">
                 <Button className="w-full justify-start bg-accent hover:bg-accent/90 text-accent-foreground">
                   <Calendar className="mr-2 h-4 w-4" />
                   Schedule a Free Consultation
@@ -93,14 +94,18 @@ export function ContactInfo() {
             <h3 className="font-heading font-bold text-xl text-primary">Connect With Us</h3>
 
             <div className="flex space-x-4">
-              <Button variant="outline" size="sm" className="flex-1 bg-transparent">
-                <Linkedin className="mr-2 h-4 w-4" />
-                LinkedIn
-              </Button>
-              <Button variant="outline" size="sm" className="flex-1 bg-transparent">
-                <Twitter className="mr-2 h-4 w-4" />
-                Twitter
-              </Button>
+              <Link href="https://www.linkedin.com/company/abrimattconsultingltd">
+                <Button variant="outline" size="sm" className="flex-1 bg-transparent">
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  LinkedIn
+                </Button>
+              </Link>
+              <Link href="https://x.com/abrimattconsult">
+                <Button variant="outline" size="sm" className="flex-1 bg-transparent">
+                  <Twitter className="mr-2 h-4 w-4" />
+                  Twitter
+                </Button>
+              </Link>
             </div>
 
             <div className="text-sm text-muted-foreground">

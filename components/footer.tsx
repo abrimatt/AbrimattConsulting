@@ -13,10 +13,16 @@ export function Footer() {
               Empowering businesses through strategic consulting and innovative solutions.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <Link
+                href="https://www.linkedin.com/company/abrimattconsultingltd"
+                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <Link
+                href="https://x.com/abrimattconsult"
+                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </Link>
             </div>
