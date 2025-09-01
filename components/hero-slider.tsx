@@ -44,7 +44,7 @@ export function HeroSlider() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 15000)
+    }, 10000) // reverted slider timing from 15000ms to 10000ms (10 seconds)
     return () => clearInterval(timer)
   }, [])
 
