@@ -29,7 +29,7 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+    <nav className="sticky top-0 z-[60] bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center">
@@ -64,7 +64,7 @@ export function Navigation() {
 
               {isProductsOpen && (
                 <div
-                  className="absolute top-full left-0 mt-1 w-64 bg-background border rounded-md shadow-lg py-2"
+                  className="absolute top-full left-0 mt-1 w-64 bg-background border rounded-md shadow-lg py-2 z-[70]"
                   onMouseEnter={() => setIsProductsOpen(true)}
                   onMouseLeave={() => setIsProductsOpen(false)}
                 >
