@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Building2, Cloud, ShoppingCart, Globe, Users, UtensilsCrossed } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "Products - Abrimatt Consulting Ltd",
@@ -206,6 +207,8 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }

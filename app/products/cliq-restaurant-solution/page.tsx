@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { CheckCircle, Users, ShoppingCart, BarChart3, Smartphone, CreditCard, Clock, MapPin } from "lucide-react"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 export default function CliqRestaurantSolutionPage() {
   const features = [
@@ -218,6 +219,8 @@ export default function CliqRestaurantSolutionPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }

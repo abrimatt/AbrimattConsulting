@@ -5,6 +5,7 @@ import { Shield, Lock, Eye, Zap, Users, BarChart3, CheckCircle, ArrowRight, Phon
 import Image from "next/image"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 export default function CybersecuritySolutionsPage() {
   const solutions = [
@@ -246,6 +247,8 @@ export default function CybersecuritySolutionsPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }

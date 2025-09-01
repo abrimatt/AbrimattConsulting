@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, CheckCircle, Cloud, Users, Brain, Shield, BarChart3, FileText, Zap } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "Microsoft Solutions - Abrimatt Consulting Ltd",
@@ -281,6 +282,9 @@ export default function MicrosoftSolutionsPage() {
           </div>
         </div>
       </section>
+
+      {/* Footer Component */}
+      <Footer />
     </div>
   )
 }

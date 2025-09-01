@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, CheckCircle, Cloud, BarChart3, Users, Globe, Zap, Shield } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "SAP Business ByDesign - Abrimatt Consulting Ltd",
@@ -278,6 +279,8 @@ export default function SAPBusinessByDesignPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }

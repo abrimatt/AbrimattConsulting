@@ -5,6 +5,7 @@ import { CheckCircle, Cloud, Zap, Shield, BarChart3, Cog, TrendingUp } from "luc
 import Link from "next/link"
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 export default function SAPS4HANAPublicCloudPage() {
   const keyFeatures = [
@@ -236,6 +237,8 @@ export default function SAPS4HANAPublicCloudPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }
