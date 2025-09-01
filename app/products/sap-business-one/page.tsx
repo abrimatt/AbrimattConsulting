@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, CheckCircle, Building2, BarChart3, Users, ShoppingCart, Package, Calculator } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "SAP Business One - Abrimatt Consulting Ltd",
@@ -92,11 +93,16 @@ export default function SAPBusinessOnePage() {
               </div>
             </div>
             <div className="relative">
-              <img
-                src="/sap-b1-financial-dashboard.png"
-                alt="SAP Business One Dashboard"
-                className="rounded-lg shadow-2xl"
-              />
+              <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-lg shadow-2xl">
+                <img
+                  src="/sap-business-one-interface.png"
+                  alt="SAP Business One Dashboard Interface"
+                  className="rounded-lg shadow-xl w-full"
+                />
+                <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold">
+                  Live Demo Available
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -208,6 +214,9 @@ export default function SAPBusinessOnePage() {
           </div>
         </div>
       </section>
+
+      {/* Footer Component */}
+      <Footer />
     </div>
   )
 }
