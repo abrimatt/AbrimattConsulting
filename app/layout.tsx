@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description:
     "Empowering your business through insightful consulting. Unlock your potential with tailored strategies and expert guidance from Abrimatt Consulting Ltd.",
   generator: "v0.app",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
