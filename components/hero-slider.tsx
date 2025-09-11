@@ -14,27 +14,39 @@ const slides = [
       "Deploy cutting-edge SAP ecosystems, advanced cybersecurity frameworks, and scalable cloud infrastructure to drive operational excellence.",
     cta: "Schedule Consultation",
     ctaLink: "/consultation",
-    image: "/corporate-team-meeting-dark.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2397.jpg-8moug0doQ5COA57IFxnTUSL7NYi2ue.jpeg",
   },
   {
     id: 2,
-    title: "Enterprise SAP Architecture",
-    subtitle: "S/4HANA | Business ByDesign | Business One",
+    title: "Smart Warehouse & Logistics Solutions",
+    subtitle: "Automated Inventory Management | Real-Time Tracking",
     description:
-      "Implement intelligent ERP solutions with real-time analytics, AI-driven insights, and seamless integration across your technology stack.",
+      "Optimize supply chain operations with intelligent barcode systems, IoT sensors, and predictive analytics for seamless warehouse management.",
     cta: "Explore Solutions",
     ctaLink: "/products",
-    image: "/sap-dashboard-corporate.png",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/warehouse-smiling-colleagues-scanning-cardboard-box-barcode-chatting%20-%20Copy.jpg-75r0yLfBNE3qhbnTs8DJE2zjfRokRa.jpeg",
   },
   {
     id: 3,
-    title: "Zero-Trust Security Framework",
-    subtitle: "Fortinet | Sophos | Cisco Firepower Integration",
+    title: "Enterprise Architecture Excellence",
+    subtitle: "Scalable Infrastructure | Cloud-Native Solutions",
     description:
-      "Deploy multi-layered cybersecurity architecture with advanced threat detection, network segmentation, and automated incident response.",
-    cta: "Security Assessment",
-    ctaLink: "/products/cybersecurity-solutions",
-    image: "/cybersecurity-corporate-dark.png",
+      "Build robust enterprise foundations with modern architectural patterns, microservices, and cloud-first strategies for sustainable growth.",
+    cta: "View Architecture",
+    ctaLink: "/products",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/low-angle-view-skyscrapers.jpg-uiiEdPpQJr3rqpJeBGsDTrYo41YcfI.jpeg",
+  },
+  {
+    id: 4,
+    title: "Strategic IT Consulting",
+    subtitle: "Digital Strategy | Technology Leadership | Innovation",
+    description:
+      "Partner with our expert consultants to develop comprehensive IT strategies, optimize business processes, and accelerate digital innovation.",
+    cta: "Start Consultation",
+    ctaLink: "/contact",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img-2.jpg-zZ241GWEdLOMhRMplY0OoxRPQxfU0n.jpeg",
   },
 ]
 
