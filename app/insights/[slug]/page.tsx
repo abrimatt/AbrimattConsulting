@@ -7,17 +7,27 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
-export default async function InsightDetailPage({ params }: { params: { slug: string } }) {
+export default async function InsightDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
   const supabase = await createClient()
 
-  const { data: insight } = await supabase
+  console.log("[v0] Fetching insight with slug:", slug)
+
+  const { data: insight, error } = await supabase
     .from("insights")
     .select("*")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .eq("status", "published")
     .single()
 
+  console.log("[v0] Insight query result:", { insight, error })
+
   if (!insight) {
+    console.log("[v0] Insight not found, returning 404")
     notFound()
   }
 
