@@ -1,14 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Calendar, Clock, User, Loader2 } from "lucide-react"
-import { apiService, type BlogPost } from "@/lib/api"
+import { ArrowRight, Calendar, Clock, User } from "lucide-react"
 import Link from "next/link"
 
-const fallbackInsights = [
+const insights = [
   {
     id: 1,
     title: "Strategic Planning in Uncertain Times: A Framework for Success",
@@ -18,10 +16,8 @@ const fallbackInsights = [
     author: "Emma Rodriguez",
     date: "January 10, 2025",
     read_time: "5 min read",
-    image: "/strategic-planning-framework.png",
+    image: "/business-strategy-planning.png",
     slug: "strategic-planning-framework",
-    created_at: "2025-01-10",
-    updated_at: "2025-01-10",
   },
   {
     id: 2,
@@ -31,10 +27,8 @@ const fallbackInsights = [
     author: "James Thompson",
     date: "January 8, 2025",
     read_time: "7 min read",
-    image: "/change-management-roi.png",
+    image: "/change-management-business-transformation.jpg",
     slug: "roi-change-management",
-    created_at: "2025-01-08",
-    updated_at: "2025-01-08",
   },
   {
     id: 3,
@@ -44,10 +38,8 @@ const fallbackInsights = [
     author: "Lisa Park",
     date: "January 5, 2025",
     read_time: "6 min read",
-    image: "/financial-modeling-growth.png",
+    image: "/financial-modeling-charts-graphs.jpg",
     slug: "financial-modeling-growth",
-    created_at: "2025-01-05",
-    updated_at: "2025-01-05",
   },
   {
     id: 4,
@@ -58,10 +50,8 @@ const fallbackInsights = [
     author: "Michael Brown",
     date: "January 3, 2025",
     read_time: "8 min read",
-    image: "/operational-excellence.png",
+    image: "/operational-efficiency-process-optimization.jpg",
     slug: "operational-excellence",
-    created_at: "2025-01-03",
-    updated_at: "2025-01-03",
   },
   {
     id: 5,
@@ -71,10 +61,8 @@ const fallbackInsights = [
     author: "Sarah Mitchell",
     date: "December 28, 2024",
     read_time: "5 min read",
-    image: "/digital-leadership.png",
+    image: "/digital-leadership-executive-team.jpg",
     slug: "digital-leadership",
-    created_at: "2024-12-28",
-    updated_at: "2024-12-28",
   },
   {
     id: 6,
@@ -84,57 +72,12 @@ const fallbackInsights = [
     author: "David Chen",
     date: "December 25, 2024",
     read_time: "9 min read",
-    image: "/data-driven-decisions.png",
+    image: "/data-analytics-business-intelligence.jpg",
     slug: "data-driven-decisions",
-    created_at: "2024-12-25",
-    updated_at: "2024-12-25",
   },
 ]
 
 export function InsightsGrid() {
-  const [insights, setInsights] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    const fetchInsights = async () => {
-      try {
-        setLoading(true)
-        setError(null)
-
-        const response = await apiService.getBlogPosts(1, 6)
-        setInsights(response.data)
-      } catch (err) {
-        console.error("Failed to fetch blog posts:", err)
-        setError("Failed to load blog posts")
-        setInsights(fallbackInsights)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchInsights()
-  }, [])
-
-  if (loading) {
-    return (
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-primary mb-4">Latest Insights</h2>
-            <p className="text-lg text-muted-foreground">
-              Expert perspectives on the challenges and opportunities facing modern businesses.
-            </p>
-          </div>
-          <div className="flex justify-center items-center py-20">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            <span className="ml-2 text-muted-foreground">Loading insights...</span>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
   return (
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,11 +86,6 @@ export function InsightsGrid() {
           <p className="text-lg text-muted-foreground">
             Expert perspectives on the challenges and opportunities facing modern businesses.
           </p>
-          {error && (
-            <p className="text-sm text-amber-600 mt-2">
-              Currently showing cached content. Please check your connection.
-            </p>
-          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

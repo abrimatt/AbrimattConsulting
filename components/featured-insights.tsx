@@ -1,14 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Calendar, Clock, Loader2 } from "lucide-react"
-import { apiService, type BlogPost } from "@/lib/api"
+import { ArrowRight, Calendar, Clock } from "lucide-react"
 import Link from "next/link"
 
-const fallbackFeaturedPosts = [
+const featuredPosts = [
   {
     id: 1,
     title: "The Future of Digital Transformation in 2025",
@@ -18,10 +16,8 @@ const fallbackFeaturedPosts = [
     author: "Sarah Mitchell",
     date: "January 15, 2025",
     read_time: "8 min read",
-    image: "/digital-transformation-2025.png",
+    image: "/digital-transformation.png",
     slug: "digital-transformation-2025",
-    created_at: "2025-01-15",
-    updated_at: "2025-01-15",
   },
   {
     id: 2,
@@ -31,57 +27,12 @@ const fallbackFeaturedPosts = [
     author: "David Chen",
     date: "January 12, 2025",
     read_time: "6 min read",
-    image: "/supply-chain-resilience.png",
+    image: "/supply-chain-warehouse.png",
     slug: "supply-chain-resilience",
-    created_at: "2025-01-12",
-    updated_at: "2025-01-12",
   },
 ]
 
 export function FeaturedInsights() {
-  const [featuredPosts, setFeaturedPosts] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    const fetchFeaturedPosts = async () => {
-      try {
-        setLoading(true)
-        setError(null)
-
-        const response = await apiService.getFeaturedPosts()
-        setFeaturedPosts(response.data)
-      } catch (err) {
-        console.error("Failed to fetch featured posts:", err)
-        setError("Failed to load featured posts")
-        setFeaturedPosts(fallbackFeaturedPosts)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchFeaturedPosts()
-  }, [])
-
-  if (loading) {
-    return (
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-primary mb-4">Featured Insights</h2>
-            <p className="text-lg text-muted-foreground">
-              Our latest thinking on the trends and challenges shaping business today.
-            </p>
-          </div>
-          <div className="flex justify-center items-center py-12">
-            <Loader2 className="h-6 w-6 animate-spin text-primary" />
-            <span className="ml-2 text-muted-foreground">Loading featured insights...</span>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,11 +41,6 @@ export function FeaturedInsights() {
           <p className="text-lg text-muted-foreground">
             Our latest thinking on the trends and challenges shaping business today.
           </p>
-          {error && (
-            <p className="text-sm text-amber-600 mt-2">
-              Currently showing cached content. Please check your connection.
-            </p>
-          )}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
