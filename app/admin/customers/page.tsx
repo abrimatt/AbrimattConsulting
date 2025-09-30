@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Users, ArrowLeft, Mail, Phone, Building2 } from "lucide-react"
 import Link from "next/link"
+import { AdminNav } from "@/components/admin/admin-nav"
 
 export default async function AdminCustomersPage() {
   await requireAdmin()
@@ -18,6 +19,7 @@ export default async function AdminCustomersPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <AdminNav />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
           <Button asChild variant="ghost" size="sm" className="mb-2">

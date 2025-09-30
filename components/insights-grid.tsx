@@ -1,83 +1,23 @@
-"use client"
-
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Calendar, Clock, User } from "lucide-react"
 import Link from "next/link"
+import type { Insight } from "@/app/insights/page"
 
-const insights = [
-  {
-    id: 1,
-    title: "Strategic Planning in Uncertain Times: A Framework for Success",
-    excerpt:
-      "Discover how to build robust strategies that can adapt to changing market conditions and unexpected challenges.",
-    category: "Strategy",
-    author: "Emma Rodriguez",
-    date: "January 10, 2025",
-    read_time: "5 min read",
-    image: "/business-strategy-planning.png",
-    slug: "strategic-planning-framework",
-  },
-  {
-    id: 2,
-    title: "The ROI of Change Management: Measuring Transformation Success",
-    excerpt: "Learn how to quantify the impact of change management initiatives and demonstrate value to stakeholders.",
-    category: "Leadership",
-    author: "James Thompson",
-    date: "January 8, 2025",
-    read_time: "7 min read",
-    image: "/change-management-business-transformation.jpg",
-    slug: "roi-change-management",
-  },
-  {
-    id: 3,
-    title: "Financial Modeling for Growth: Best Practices and Common Pitfalls",
-    excerpt: "Essential techniques for creating accurate financial models that support strategic decision-making.",
-    category: "Finance",
-    author: "Lisa Park",
-    date: "January 5, 2025",
-    read_time: "6 min read",
-    image: "/financial-modeling-charts-graphs.jpg",
-    slug: "financial-modeling-growth",
-  },
-  {
-    id: 4,
-    title: "Operational Excellence: Streamlining Processes for Maximum Efficiency",
-    excerpt:
-      "Proven methodologies for identifying bottlenecks and optimizing business processes across your organization.",
-    category: "Operations",
-    author: "Michael Brown",
-    date: "January 3, 2025",
-    read_time: "8 min read",
-    image: "/operational-efficiency-process-optimization.jpg",
-    slug: "operational-excellence",
-  },
-  {
-    id: 5,
-    title: "Leadership in the Digital Age: Skills for Tomorrow's Executives",
-    excerpt: "Essential leadership competencies for navigating digital transformation and leading remote teams.",
-    category: "Leadership",
-    author: "Sarah Mitchell",
-    date: "December 28, 2024",
-    read_time: "5 min read",
-    image: "/digital-leadership-executive-team.jpg",
-    slug: "digital-leadership",
-  },
-  {
-    id: 6,
-    title: "Data-Driven Decision Making: From Analytics to Action",
-    excerpt: "How to build a data-driven culture and translate insights into strategic business decisions.",
-    category: "Strategy",
-    author: "David Chen",
-    date: "December 25, 2024",
-    read_time: "9 min read",
-    image: "/data-analytics-business-intelligence.jpg",
-    slug: "data-driven-decisions",
-  },
-]
+type InsightsGridProps = {
+  insights: Insight[]
+}
 
-export function InsightsGrid() {
+export function InsightsGrid({ insights }: InsightsGridProps) {
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
+
   return (
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,7 +37,7 @@ export function InsightsGrid() {
               <CardContent className="p-0">
                 <div className="aspect-video rounded-t-lg overflow-hidden bg-slate-100">
                   <img
-                    src={insight.image || "/placeholder.svg"}
+                    src={insight.featured_image || "/placeholder.svg"}
                     alt={insight.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -116,16 +56,16 @@ export function InsightsGrid() {
                     <div className="flex items-center space-x-3">
                       <div className="flex items-center space-x-1">
                         <User className="h-3 w-3" />
-                        <span>{insight.author}</span>
+                        <span>{insight.author_name}</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <Calendar className="h-3 w-3" />
-                        <span>{insight.date}</span>
+                        <span>{formatDate(insight.published_at)}</span>
                       </div>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Clock className="h-3 w-3" />
-                      <span>{insight.read_time}</span>
+                      <span>{insight.read_time} min</span>
                     </div>
                   </div>
                   <Link href={`/insights/${insight.slug}`}>

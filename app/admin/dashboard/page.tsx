@@ -115,6 +115,12 @@ export default async function AdminDashboardPage() {
                   <Link href="/admin/support-tickets">Support Tickets</Link>
                 </Button>
                 <Button asChild variant="ghost">
+                  <Link href="/admin/insights">Insights</Link>
+                </Button>
+                <Button asChild variant="ghost">
+                  <Link href="/admin/users">Users</Link>
+                </Button>
+                <Button asChild variant="ghost">
                   <Link href="/admin/companies">Companies</Link>
                 </Button>
               </nav>

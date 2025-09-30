@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { SupportTicketActions } from "@/components/admin/support-ticket-actions"
 import { MessageSquare, ArrowLeft, User, Clock, AlertCircle } from "lucide-react"
 import Link from "next/link"
+import { AdminNav } from "@/components/admin/admin-nav"
 
 export default async function AdminSupportTicketsPage() {
   await requireAdmin()
@@ -64,6 +65,7 @@ export default async function AdminSupportTicketsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <AdminNav />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
           <Button asChild variant="ghost" size="sm" className="mb-2">

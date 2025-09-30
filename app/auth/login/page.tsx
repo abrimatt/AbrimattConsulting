@@ -25,26 +25,37 @@ export default function LoginPage() {
     setError(null)
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
-      if (error) throw error
+
+      if (authError) throw authError
+      if (!authData.user) throw new Error("No user data returned")
 
       // Get user profile to determine redirect
-      const { data: profile } = await supabase
+      const { data: profile, error: profileError } = await supabase
         .from("profiles")
         .select("role")
-        .eq("id", (await supabase.auth.getUser()).data.user?.id)
+        .eq("id", authData.user.id)
         .single()
 
+      if (profileError) {
+        console.error("[v0] Profile fetch error:", profileError)
+        throw new Error("Failed to fetch user profile")
+      }
+
+      // Redirect based on role
       if (profile?.role === "admin") {
         router.push("/admin/dashboard")
       } else {
         router.push("/customer-portal")
       }
+
+      router.refresh()
     } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : "An error occurred")
+      console.error("[v0] Login error:", error)
+      setError(error instanceof Error ? error.message : "An error occurred during login")
     } finally {
       setIsLoading(false)
     }

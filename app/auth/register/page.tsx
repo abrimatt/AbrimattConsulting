@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -21,7 +20,6 @@ export default function RegisterPage() {
     lastName: "",
     companyName: "",
     phone: "",
-    role: "customer",
   })
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -55,7 +53,7 @@ export default function RegisterPage() {
             last_name: formData.lastName,
             company_name: formData.companyName,
             phone: formData.phone,
-            role: formData.role,
+            role: "customer", // Always customer for public registration
           },
         },
       })
@@ -130,18 +128,6 @@ export default function RegisterPage() {
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value)}
                     />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="role">Account Type</Label>
-                    <Select value={formData.role} onValueChange={(value) => handleInputChange("role", value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select account type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="customer">Customer</SelectItem>
-                        <SelectItem value="admin">Admin</SelectItem>
-                      </SelectContent>
-                    </Select>
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="password">Password</Label>
