@@ -126,8 +126,27 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/80">
-          <p>&copy; 2025 Abrimatt Consulting Ltd. All rights reserved.</p>
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-primary-foreground/80">
+              &copy; 2025 Abrimatt Consulting Ltd. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6 text-sm">
+              <Link
+                href="/login"
+                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                Customer Login
+              </Link>
+              <span className="text-primary-foreground/40">|</span>
+              <Link
+                href="/admin"
+                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                Admin Portal
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

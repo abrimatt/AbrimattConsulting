@@ -100,6 +100,10 @@ export function Navigation() {
               Contact
             </Link>
 
+            <Link href="/login" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+              Customer Login
+            </Link>
+
             <Link href="/consultation">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Schedule Consultation</Button>
             </Link>
@@ -166,6 +170,14 @@ export function Navigation() {
                 onClick={() => setIsOpen(false)}
               >
                 Contact
+              </Link>
+
+              <Link
+                href="/login"
+                className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Customer Login
               </Link>
 
               <div className="px-3 py-2">
