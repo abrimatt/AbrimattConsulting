@@ -100,8 +100,11 @@ export function Navigation() {
               Contact
             </Link>
 
-            <Link href="/login" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-              Customer Login
+            <Link
+              href="/auth/login"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              Login
             </Link>
 
             <Link href="/consultation">
@@ -173,11 +176,11 @@ export function Navigation() {
               </Link>
 
               <Link
-                href="/login"
+                href="/auth/login"
                 className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Customer Login
+                Login
               </Link>
 
               <div className="px-3 py-2">

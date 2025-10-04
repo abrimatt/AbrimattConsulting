@@ -133,14 +133,14 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-6 text-sm">
               <Link
-                href="/login"
+                href="/auth/login"
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 Customer Login
               </Link>
               <span className="text-primary-foreground/40">|</span>
               <Link
-                href="/admin"
+                href="/admin/dashboard"
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 Admin Portal
