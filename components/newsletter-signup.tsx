@@ -1,24 +1,56 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Mail, CheckCircle } from "lucide-react"
+import { Mail, CheckCircle, Loader2 } from "lucide-react"
+import { createBrowserClient } from "@/lib/supabase/client"
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
   const [interests, setInterests] = useState<string[]>([])
   const [isSubscribed, setIsSubscribed] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle newsletter signup
-    console.log("Newsletter signup:", { email, interests })
-    setIsSubscribed(true)
+    setIsLoading(true)
+    setError("")
+
+    try {
+      const supabase = createBrowserClient()
+
+      const { error: insertError } = await supabase.from("newsletter_subscribers").insert({
+        email,
+        name: name || null,
+        tags: interests,
+        source: "website",
+        status: "active",
+      })
+
+      if (insertError) {
+        if (insertError.code === "23505") {
+          setError("This email is already subscribed to our newsletter.")
+        } else {
+          throw insertError
+        }
+      } else {
+        setIsSubscribed(true)
+        setEmail("")
+        setName("")
+        setInterests([])
+      }
+    } catch (err) {
+      console.error("Newsletter signup error:", err)
+      setError("Failed to subscribe. Please try again later.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleInterestChange = (interest: string, checked: boolean) => {
@@ -83,19 +115,23 @@ export function NewsletterSignup() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Input
+                  type="text"
+                  placeholder="Your name (optional)"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
                 <Input
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder="Your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1"
                 />
-                <Button type="submit" size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                  Subscribe
-                </Button>
               </div>
+
+              {error && <div className="text-sm text-destructive bg-destructive/10 p-3 rounded-md">{error}</div>}
 
               <div className="space-y-4">
                 <h3 className="font-heading font-semibold text-primary">What interests you most?</h3>
@@ -114,6 +150,22 @@ export function NewsletterSignup() {
                   ))}
                 </div>
               </div>
+
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Subscribing...
+                  </>
+                ) : (
+                  "Subscribe to Newsletter"
+                )}
+              </Button>
 
               <div className="text-center space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">

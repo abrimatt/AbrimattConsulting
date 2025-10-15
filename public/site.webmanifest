@@ -1,0 +1,16 @@
+{
+  "name": "Abrimatt Consulting Ltd",
+  "short_name": "Abrimatt",
+  "description": "Expert Business Consulting Services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

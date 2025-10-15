@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and portal pages
+Disallow: /admin/
+Disallow: /customer-portal/
+Disallow: /auth/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.abrimatt.com/sitemap.xml

@@ -5,12 +5,24 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Building2, Cloud, ShoppingCart, Globe, Users, UtensilsCrossed } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { Breadcrumbs } from "@/components/breadcrumbs"
+import { generateMetadata as generateSEOMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Products - Abrimatt Consulting Ltd",
+export const metadata: Metadata = generateSEOMetadata({
+  title: "Enterprise Software Products - SAP, Microsoft & Custom Solutions",
   description:
-    "Comprehensive SAP and Microsoft solutions for small and medium enterprises. Transform your business with our proven software solutions.",
-}
+    "Explore our comprehensive portfolio of enterprise software including SAP Business One, SAP ByDesign, Microsoft 365, and custom solutions designed for SMEs in East Africa.",
+  keywords: [
+    "SAP Business One",
+    "SAP ByDesign",
+    "Microsoft 365",
+    "enterprise software",
+    "ERP solutions",
+    "business software Kenya",
+    "restaurant management system",
+  ],
+  canonical: "/products",
+})
 
 const products = [
   {
@@ -100,23 +112,48 @@ const products = [
 ]
 
 export default function ProductsPage() {
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: products.map((product, index) => ({
+      "@type": "Product",
+      position: index + 1,
+      name: product.title,
+      description: product.description,
+      offers: {
+        "@type": "Offer",
+        availability: "https://schema.org/InStock",
+        seller: {
+          "@type": "Organization",
+          name: "Abrimatt Consulting Ltd",
+        },
+      },
+    })),
+  }
+
   return (
     <div className="min-h-screen bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <Navigation />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs items={[{ label: "Products" }]} />
+      </div>
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-muted/20">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
+          <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 text-balance">
             Enterprise Software Solutions
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
             Transform your business operations with our comprehensive portfolio of SAP and Microsoft solutions, designed
-            specifically for small and medium enterprises.
+            specifically for small and medium enterprises across East Africa.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Schedule Product Demo
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <Link href="/demo">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              Schedule Product Demo
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -125,9 +162,9 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">Our Product Portfolio</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Choose from our range of proven enterprise solutions, each designed to address specific business needs and
-              drive growth.
+              drive sustainable growth.
             </p>
           </div>
 
@@ -188,12 +225,12 @@ export default function ProductsPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary/5">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-6">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-6 text-balance">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
             Let our experts help you choose the right solution for your business needs. Schedule a consultation to
-            discuss your requirements.
+            discuss your requirements and discover how our solutions can drive your success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/consultation">
@@ -201,9 +238,11 @@ export default function ProductsPage() {
                 Schedule Consultation
               </Button>
             </Link>
-            <Button size="lg" variant="outline">
-              Download Product Brochure
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" variant="outline">
+                Contact Sales Team
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
